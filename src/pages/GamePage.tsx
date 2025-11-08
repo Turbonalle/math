@@ -64,7 +64,6 @@ export default function GamePage() {
 		setProblem(newProblem);
 		setFeedback("");
 		startScoreTimer();
-		// setTimeout(() => startScoreTimer(), 0);
 	}
 
 	function handleAnswer(selected: number) {
