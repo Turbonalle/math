@@ -26,12 +26,17 @@ export default function LandingPage() {
 					/>
 				))}
 			</div>
-			<button className="mt-10 px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition" onClick={() => {
-				if (window.confirm("Are you sure you want to reset all progress?")) {
-					localStorage.removeItem("mathScores");
-					window.location.reload();
-				}
-			}}>Reset Progress</button>
+			<button
+				className="mt-10 px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition"
+				onClick={() => {
+					if (window.confirm("Are you sure you want to reset all progress?")) {
+						localStorage.removeItem("mathScores");
+						window.location.reload();
+					}
+				}}
+			>
+				Reset Progress
+			</button>
 		</div>
 	);
 }
