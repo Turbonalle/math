@@ -1,55 +1,34 @@
 import type { Problem } from "../../types/Problem";
 
-export function multiplicationGenerator(mode: string): Problem {
-	switch (mode) {
-		case "Table 2: low": {
-			return generateMultiplicationProblem(2, 5);
+export class MultiplicationGenerator {
+	private factorPools: Record<number, number[]> = {};
+
+	private getNextFactor(table: number): number {
+		let pool = this.factorPools[table];
+		if (!pool || pool.length === 0) {
+			pool = [];
+			for (let i = 0; i <= 10; i++) {
+				pool.push(i);
+			}
+			this.factorPools[table] = pool;
 		}
-		case "Table 2": {
-			return generateMultiplicationProblem(2, 10);
-		}
-		case "Table 3: low": {
-			return generateMultiplicationProblem(3, 5);
-		}
-		case "Table 3": {
-			return generateMultiplicationProblem(3, 10);
-		}
-		case "Table 4: low": {
-			return generateMultiplicationProblem(4, 5);
-		}
-		case "Table 4": {
-			return generateMultiplicationProblem(4, 10);
-		}
-		case "Table 5: low": {
-			return generateMultiplicationProblem(5, 5);
-		}
-		case "Table 5": {
-			return generateMultiplicationProblem(5, 10);
-		}
-		default:
-			throw new Error(`Unknown mode: ${mode}`);
+		const index = Math.floor(Math.random() * pool.length);
+		return pool.splice(index, 1)[0];
+	}
+
+	generate(table: number): Problem {
+		const factor = this.getNextFactor(table);
+		const answer = table * factor;
+		const question = `${table} * ${factor} = ?`;
+		const options = generateOptions(table, answer, 4);
+		options.push(answer);
+		options.sort(() => Math.random() - 0.5);
+		return { question, options, answer };
 	}
 }
 
 
-
 // ---- Helper functions -------------------------------------------------------
-
-function generateMultiplicationProblem(table: number, max: number): Problem {
-	const factor = getRandomInt(0, max);
-	const answer = table * factor;
-	const question = `${table} * ${factor} = ?`;
-	const options = generateOptions(table, answer, 4);
-	
-	options.push(answer);
-	options.sort(() => Math.random() - 0.5);
-	
-	return { question, answer, options };
-}
-
-function getRandomInt(min: number, max: number): number {
-	return (Math.floor(Math.random() * (max - min + 1)) + min);
-}
 
 function generateOptions(table: number, answer: number, optionAmount: number): number[] {
 	let options: number[] = [];
@@ -61,4 +40,8 @@ function generateOptions(table: number, answer: number, optionAmount: number): n
 		}
 	}
 	return options;
+}
+
+function getRandomInt(min: number, max: number): number {
+	return (Math.floor(Math.random() * (max - min + 1)) + min);
 }
