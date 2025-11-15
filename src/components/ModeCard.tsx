@@ -9,7 +9,7 @@ interface ModeCardProps {
 export default function ModeCard({ name, record, onStart, onHover, onLeave }: ModeCardProps) {
 	return (
 			<button
-				className="p-2 bg-gray-300 shadow rounded-xl hover:scale-105 transition flex flex-col items-center text-center w-55 border-2 border-emerald-500"
+				className="p-2 bg-gray-300 shadow rounded-xl hover:scale-105 transition flex flex-col items-center text-center w-55 border-2 border-gray-600 hover:border-emerald-400"
 				onClick={onStart}
 				onMouseEnter={onHover}
 				onMouseLeave={onLeave}

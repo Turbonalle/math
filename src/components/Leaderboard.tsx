@@ -12,11 +12,11 @@ export default function Leaderboard({ operation, mode }: LeaderboardProps) {
 			<h2 className="mb-4">Top 10</h2>
 			
 			{modeScores.length === 0 ? (
-				<p className="text-gray-400">No scores yet.</p>
+				<p className="text-gray-600 text-lg font-normal">No scores yet.</p>
 			) : (
 				<ol>
 					{modeScores.map((entry: { name: string; score: number }, i: number) => (
-						<li key={i} className="flex justify-between bg-gray-800 px-4 py-2 mb-2">
+						<li key={i} className="flex justify-between bg-gray-800 px-4 py-1 mb-1">
 							<span>{i + 1}. {entry.name}</span>
 							<span className="text-emerald-400">{entry.score}</span>
 						</li>

@@ -29,37 +29,47 @@ export default function ModeSelect() {
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-950 p-8 text-center text-gray-800">
+		<div className="flex flex-col items-center h-screen bg-gray-950 p-8 text-center text-gray-800">
 			<h1 className="text-emerald-500 font-semibold text-3xl mb-2">{operation} - Choose mode</h1>
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl mx-auto bg-gray-950">
-				{/* LEFT COLUMN */}
-				<div className="flex flex-col space-y-2 items-end">
-					{operationConfig.difficulties.map((mode: string) => {
-						const topRecord = operationScores[mode]?.[0];
+			
+			{/* MAIN CONTENT AREA */}
+			<div className="grow flex justify-center items-center">
+				<div className="flex gap-4 w-full max-w-5xl h-full bg-gray-950">
+					
+					{/* LEFT COLUMN */}
+					<div className="flex flex-col space-y-2 p-2 overflow-y-auto">
+						{operationConfig.difficulties.map((mode: string) => {
+							const topRecord = operationScores[mode]?.[0];
 
-						return (
-							<ModeCard
-								key={mode}
-								name={mode}
-								record={topRecord}
-								onStart={() => navigate(`/mode/${operation}/${mode}`)}
-								onHover={() => setHoveredMode(mode)}
-								onLeave={() => setHoveredMode(null)}
-							/>
-						);
-					})}
-				</div>
-				{/* RIGHT COLUMN */}
-				<div className="bg-gray-900 p-6 rounded-2xl min-h-[350px]">
+							return (
+								<ModeCard
+									key={mode}
+									name={mode}
+									record={topRecord}
+									onStart={() => navigate(`/mode/${operation}/${mode}`)}
+									onHover={() => setHoveredMode(mode)}
+									onLeave={() => setHoveredMode(null)}
+								/>
+							);
+						})}
+					</div>
+					
+					{/* RIGHT COLUMN */}
 					{hoveredMode ? (
-						<Leaderboard operation={operation!} mode={hoveredMode} />
+						<div className="bg-gray-900 p-6 rounded-2xl h-full w-[400px]">
+							<Leaderboard operation={operation!} mode={hoveredMode} />
+						</div>
 					) : (
-						<div className="text-gray-400 text-lg">
-							Hover a mode to view leaderboard.
+						<div className="bg-gray-900 p-6 rounded-2xl h-full w-[400px] flex items-center justify-center">
+							<div className="text-gray-600 text-lg">
+								Hover a mode to view leaderboard.
+							</div>
 						</div>
 					)}
 				</div>
 			</div>
+
+			{/* FOOTER */}
 			<button
 				className="mt-10 text-gray-400 hover:text-emerald-400 transition"
 				onClick={() => navigate("/")}
