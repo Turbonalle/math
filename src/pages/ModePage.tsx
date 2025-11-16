@@ -4,7 +4,7 @@ import { operations } from "../data/config";
 import ModeCard from "../components/ModeCard";
 import Leaderboard from "../components/Leaderboard";
 
-export default function ModeSelect() {
+export default function ModePage() {
 	const navigate = useNavigate();
 	const { operation } = useParams();
 	const [hoveredMode, setHoveredMode] = useState<string | null>(null);
@@ -61,7 +61,7 @@ export default function ModeSelect() {
 						</div>
 					) : (
 						<div className="bg-gray-900 p-6 rounded-2xl h-full w-[400px] flex items-center justify-center">
-							<div className="text-gray-600 text-lg">
+							<div className="text-gray-600 text-base">
 								Hover a mode to view leaderboard.
 							</div>
 						</div>

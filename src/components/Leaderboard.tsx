@@ -8,7 +8,7 @@ export default function Leaderboard({ operation, mode }: LeaderboardProps) {
 	const modeScores = scores[operation]?.[mode] || [];
 
 	return (
-		<div className="text-2xl text-emerald-400 font-semibold mb-4 capitailze gap-2">
+		<div className="text-xl text-emerald-400 font-semibold mb-4">
 			<h2 className="mb-4">Top 10</h2>
 			
 			{modeScores.length === 0 ? (
@@ -16,9 +16,38 @@ export default function Leaderboard({ operation, mode }: LeaderboardProps) {
 			) : (
 				<ol>
 					{modeScores.map((entry: { name: string; score: number }, i: number) => (
-						<li key={i} className="flex justify-between bg-gray-800 px-4 py-1 mb-1">
-							<span>{i + 1}. {entry.name}</span>
-							<span className="text-emerald-400">{entry.score}</span>
+						<li
+							key={i}
+							className="grid grid-cols-[2rem_1fr_auto] items-center gap-2 px-4 py-2 mb-1 rounded-xl bg-zinc-900/40 backdrop-blur-sm border border-zinc-800"
+						>
+							<span
+								className={
+									i === 0
+										? "text-yellow-400 font-bold"
+										: i === 1
+										? "text-gray-400 font-bold"
+										: i === 2
+										? "text-amber-700 font-bold"
+										: "text-emerald-500"
+								}
+							>{i + 1}.</span>
+							<span className="text-gray-500 text-left truncate">{entry.name}</span>
+							<span
+								// className={
+								// 	i < 3
+								// 		? "text-white font-semibold text-right"
+								// 		: "text-emerald-500 text-right"
+								// }
+								className={
+									i === 0
+										? "text-yellow-400 font-bold text-right"
+										: i === 1
+										? "text-gray-400 font-bold text-right"
+										: i === 2
+										? "text-amber-700 font-bold text-right"
+										: "text-emerald-500 text-right"
+								}
+							>{entry.score}</span>
 						</li>
 					))}
 				</ol>

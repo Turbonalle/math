@@ -130,8 +130,6 @@ export default function GamePage() {
 		if (finalScore > lowestTopScore) {
 			const name = prompt("You made it to the top 10! Enter your name:") || "Anonymous";
 
-			console.log("name: ", name);
-
 			modeScores.push({ name, score: finalScore });
 			modeScores.sort((a: {name: string, score: number}, b: {name: string, score: number}) => b.score - a.score);
 			modeScores.splice(10);
