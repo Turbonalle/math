@@ -1,12 +1,10 @@
 interface OperationCardProps {
 	name: string;
 	symbol: string;
-	progress: number;
-	score: number;
 	onStart: () => void;
 }
 
-export default function OperationCard({ name, symbol, progress, score, onStart }: OperationCardProps) {
+export default function OperationCard({ name, symbol, onStart }: OperationCardProps) {
 	return (
 			<button
 				className="p-4 bg-gray-200 shadow rounded-xl hover:scale-105 transition flex flex-col items-center text-center w-45 border-2 border-gray-600 hover:border-emerald-400"

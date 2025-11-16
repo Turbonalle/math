@@ -22,8 +22,6 @@ export default function LandingPage() {
 					key={operation.name}
 					name={operation.name}
 					symbol={operation.symbol}
-					progress={0}
-					score={0}
 					onStart={() => navigate(`/mode/${operation.name}`)}
 					/>
 				))}
