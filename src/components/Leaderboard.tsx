@@ -15,7 +15,7 @@ export default function Leaderboard({ operation, mode }: LeaderboardProps) {
 			<h2 className="mb-4">{t("leaderboard.top10")}</h2>
 			
 			{modeScores.length === 0 ? (
-				<p className="text-gray-600 text-lg font-normal">No scores yet.</p>
+				<p className="text-gray-600 text-lg font-normal">{t("leaderboard.noscore")}.</p>
 			) : (
 				<ol>
 					{modeScores.map((entry: { name: string; score: number }, i: number) => (

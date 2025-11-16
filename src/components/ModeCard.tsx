@@ -1,3 +1,5 @@
+import { useTranslation } from "../data/useTranslation";
+
 interface ModeCardProps {
 	name: string;
 	record: { name: string; score: number } | undefined;
@@ -7,6 +9,8 @@ interface ModeCardProps {
 }
 
 export default function ModeCard({ name, record, onStart, onHover, onLeave }: ModeCardProps) {
+	const { t } = useTranslation();
+
 	return (
 			<button
 				className="p-2 bg-gray-300 shadow rounded-xl hover:scale-105 transition flex flex-col items-center text-center w-55 border-2 border-gray-600 hover:border-emerald-400"
@@ -16,10 +20,10 @@ export default function ModeCard({ name, record, onStart, onHover, onLeave }: Mo
 			>
 				<h2 className="text-2xl font-bold mb-1">{name}</h2>
 				{record ? (
-					<div className="text-gray-500 text-sm">Record: {record.name}, {record.score}</div>
+					<div className="text-gray-500 text-sm">{t("modepage.record")}: {record.name}, {record.score}</div>
 				) : (
-					<div className="text-gray-500 text-sm">Record: -</div>
+					<div className="text-gray-500 text-sm">{t("modepage.record")}: -</div>
 				)}
 			</button>
 	);
-}
+};

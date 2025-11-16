@@ -19,8 +19,9 @@ export const texts: Record<Language, any> = {
 			score: "Score",
 			total: "Total Score",
 			progress: "Progress",
-			back: "Back"
 		},
+		back: "Back",
+		error: "Sorry, something went wrong...",
 		operations: {
 			addition: {
 				name: "Addition",
@@ -96,8 +97,9 @@ export const texts: Record<Language, any> = {
 			score: "Poäng",
 			total: "Totalpoäng",
 			progress: "Framsteg",
-			back: "Tillbaka"
 		},
+		back: "Tillbaka",
+		error: "Hoppsan, något gick snett...",
 		operations: {
 			addition: {
 				name: "Addition",
@@ -113,7 +115,7 @@ export const texts: Record<Language, any> = {
 				}
 			},
 			subtraction: {
-				name: "Subtraction",
+				name: "Subtraktion",
 				modes: {
 					"1": "",
 					"2": "",
@@ -126,7 +128,7 @@ export const texts: Record<Language, any> = {
 				}
 			},
 			multiplication: {
-				name: "Multiplication",
+				name: "Multiplikation",
 				modes: {
 					"1": "Tabell 2",
 					"2": "Tabell 3",
@@ -161,7 +163,7 @@ export const texts: Record<Language, any> = {
 			reset: "Nollaa edistyminen"
 		},
 		modepage: {
-			title: "Valitse tila",
+			title: "Valitse taso",
 			record: "Ennätys",
 		},
 		leaderboard: {
@@ -172,20 +174,21 @@ export const texts: Record<Language, any> = {
 		game: {
 			score: "Pisteet",
 			total: "Kokonaispisteet",
-			progress: "Esistyminen",
-			back: "Takaisin"
+			progress: "Edistyminen",
 		},
+		back: "Takaisin",
+		error: "Voi ei, jokin meni vikaan...",
 		operations: {
 			addition: {
 				name: "Yhteenlasku",
 				modes: {
 					"1": "0 - 5",
 					"2": "0 - 10",
-					"3": "Ten: Pairs",
+					"3": "Kymppiparit",
 					"4": "10 + x",
 					"5": "10 - 20",
-					"6": "Past 10: low",
-					"7": "Past 10: high",
+					"6": "Yli 10: helppo",
+					"7": "Yli 10: vaikea",
 					"8": "20 - 100"
 				}
 			},
@@ -205,16 +208,16 @@ export const texts: Record<Language, any> = {
 			multiplication: {
 				name: "Kertolasku",
 				modes: {
-					"1": "Table 2",
-					"2": "Table 3",
-					"3": "Table 4",
-					"4": "Table 5",
-					"5": "Table 6",
-					"6": "Table 7",
-					"7": "Table 8",
-					"8": "Table 9",
-					"9": "Table 10",
-					"10": "Table 2-10"
+					"1": "Kertotaulu 2",
+					"2": "Kertotaulu 3",
+					"3": "Kertotaulu 4",
+					"4": "Kertotaulu 5",
+					"5": "Kertotaulu 6",
+					"6": "Kertotaulu 7",
+					"7": "Kertotaulu 8",
+					"8": "Kertotaulu 9",
+					"9": "Kertotaulu 10",
+					"10": "Kertotaulut 2-10"
 				}
 			},
 			division: {
@@ -250,19 +253,20 @@ export const texts: Record<Language, any> = {
 			score: "Score",
 			total: "Kabuuang iskor",
 			progress: "Progreso",
-			back: "Bumalik"
 		},
+		back: "Bumalik",
+		error: "Pasensya, may nagkamali",
 		operations: {
 			addition: {
 				name: "Pagdaragdag",
 				modes: {
 					"1": "0 - 5",
 					"2": "0 - 10",
-					"3": "Ten: Pairs",
+					"3": "Sampu: Magkapareha",
 					"4": "10 + x",
 					"5": "10 - 20",
-					"6": "Past 10: low",
-					"7": "Past 10: high",
+					"6": "Lampas 10: mababa",
+					"7": "Lampas 10: mataas",
 					"8": "20 - 100"
 				}
 			},
@@ -282,16 +286,16 @@ export const texts: Record<Language, any> = {
 			multiplication: {
 				name: "Pagmumultiplika",
 				modes: {
-					"1": "Table 2",
-					"2": "Table 3",
-					"3": "Table 4",
-					"4": "Table 5",
-					"5": "Table 6",
-					"6": "Table 7",
-					"7": "Table 8",
-					"8": "Table 9",
-					"9": "Table 10",
-					"10": "Table 2-10"
+					"1": "Talahanayan 2",
+					"2": "Talahanayan 3",
+					"3": "Talahanayan 4",
+					"4": "Talahanayan 5",
+					"5": "Talahanayan 6",
+					"6": "Talahanayan 7",
+					"7": "Talahanayan 8",
+					"8": "Talahanayan 9",
+					"9": "Talahanayan 10",
+					"10": "Talahanayan 2-10"
 				}
 			},
 			division: {
@@ -327,19 +331,20 @@ export const texts: Record<Language, any> = {
 			score: "Stig",
 			total: "Heildarstig",
 			progress: "Framvinda",
-			back: "Til baka"
 		},
+		back: "Til baka",
+		error: "Úps, eitthvað fór úrskeiðis...",
 		operations: {
 			addition: {
 				name: "Samlagning",
 				modes: {
 					"1": "0 - 5",
 					"2": "0 - 10",
-					"3": "Ten: Pairs",
+					"3": "Tugapör",
 					"4": "10 + x",
 					"5": "10 - 20",
-					"6": "Past 10: low",
-					"7": "Past 10: high",
+					"6": "Yfir 10: létt",
+					"7": "Yfir 10: erfitt",
 					"8": "20 - 100"
 				}
 			},
@@ -359,16 +364,16 @@ export const texts: Record<Language, any> = {
 			multiplication: {
 				name: "Margföldun",
 				modes: {
-					"1": "Table 2",
-					"2": "Table 3",
-					"3": "Table 4",
-					"4": "Table 5",
-					"5": "Table 6",
-					"6": "Table 7",
-					"7": "Table 8",
-					"8": "Table 9",
-					"9": "Table 10",
-					"10": "Table 2-10"
+					"1": "Tafla 2",
+					"2": "Tafla 3",
+					"3": "Tafla 4",
+					"4": "Tafla 5",
+					"5": "Tafla 6",
+					"6": "Tafla 7",
+					"7": "Tafla 8",
+					"8": "Tafla 9",
+					"9": "Tafla 10",
+					"10": "Tölur 2-10"
 				}
 			},
 			division: {

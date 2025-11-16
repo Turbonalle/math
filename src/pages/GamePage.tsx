@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { operations } from "../data/config";
+import { useTranslation } from "../data/useTranslation";
 import type { Problem } from "../types/Problem";
 import ProgressBar from "../components/ProgressBar";
 import OptionButton from "../components/OptionButton";
@@ -14,6 +15,7 @@ export default function GamePage() {
 
 	const { operation, mode } = useParams();
 	const navigate = useNavigate();
+	const { t } = useTranslation();
 
 	const [problem, setProblem] = useState<Problem | null>(null);
 	const [progress, setProgress] = useState(0);
@@ -146,21 +148,13 @@ export default function GamePage() {
 
 	// ---- Return -------------------------------------------------------------
 
-	if (!operation || !mode) {
+	if (!operation || !mode || !problem) {
 		return (
 			<div className="flex flex-col items-center justify-center min-h-screen text-white bg-gray-950">
-				<p className="text-xl text-red-400">Invalid mode selected.</p>
+				<p className="text-xl text-red-400">{t("error")}</p>
 				<button onClick={() => navigate(`/mode/${operation}`)} className="text-emerald-400 mt-4">
-					← Go Home
+					← {t("back")}
 				</button>
-			</div>
-		);
-	}
-
-	if (!problem) {
-		return (
-			<div className="flex items-center justify-center min-h-screen text-white bg-gray-950">
-				<p>Loading problem...</p>
 			</div>
 		);
 	}
@@ -168,16 +162,16 @@ export default function GamePage() {
 	return (
 		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-950 text-white p-8 space-y-8">
 			<h1 className="text-3xl text-emerald-400 font-bold capitalize">
-				{operation} — {mode}
+				{t(`operations.${operation}.name`)} — {t(`operations.${operation}.modes.${mode}`)}
 			</h1>
 
 			{/* Score timer (reverse progress) */}
 			<div className="w-80">
 				<p className="text-sm mb-1 text-gray-400">
-					Score: <span className="text-emerald-400">{score}</span>
+					{t("game.score")}: <span className="text-emerald-400">{score}</span>
 				</p>
 				<p className="text-sm mb-1 text-gray-400">
-					Total Score: <span className="text-emerald-400">{totalScore}</span>
+					{t("game.total")}: <span className="text-emerald-400">{totalScore}</span>
 				</p>
 				<div className="w-full h-4 bg-gray-700 rounded-full">
 					<div
@@ -208,7 +202,7 @@ export default function GamePage() {
 
 			{/* Progress bar (how many problems done) */}
 			<div className="w-80">
-				<p className="text-sm mb-1 text-gray-400">Progress:
+				<p className="text-sm mb-1 text-gray-400">{t("game.progress")}:
 					<span className="text-emerald-400"> {progress} / {TOTAL_PROBLEMS}</span>
 				</p>
 				<ProgressBar current={progress} total={TOTAL_PROBLEMS} />
@@ -218,7 +212,7 @@ export default function GamePage() {
 				onClick={() => navigate(`/mode/${operation}`)}
 				className="mt-10 text-gray-400 hover:text-emerald-400 transition"
 			>
-				← Back
+				← {t("back")}
 			</button>
 		</div>
 	);

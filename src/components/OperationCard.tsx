@@ -10,7 +10,7 @@ export default function OperationCard({ name, symbol, onStart }: OperationCardPr
 				className="p-4 bg-gray-200 shadow rounded-xl hover:scale-105 transition flex flex-col items-center text-center w-45 border-2 border-gray-600 hover:border-emerald-400"
 				onClick={onStart}
 			>
-				<h2 className="text-2xl font-bold mb-2 capitalize">{name}</h2>
+				<h2 className="text-xl font-bold mb-2 capitalize">{name}</h2>
 				<div className="text-4xl mb-4">{symbol}</div>
 			</button>
 	);

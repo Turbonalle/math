@@ -7,10 +7,10 @@ export default function LandingPage() {
 	const { t } = useTranslation();
 
 	const operations = [
-		{ name: "addition", symbol: "+" },
-		{ name: "subtraction", symbol: "-" },
-		{ name: "multiplication", symbol: "×" },
-		{ name: "division", symbol: "÷" }
+		{ id: "addition", name: t("operations.addition.name"), symbol: "+" },
+		{ id: "subtraction", name: t("operations.subtraction.name"), symbol: "-" },
+		{ id: "multiplication", name: t("operations.multiplication.name"), symbol: "×" },
+		{ id: "division", name: t("operations.division.name"), symbol: "÷" }
 	];
 
 	return (
@@ -22,7 +22,7 @@ export default function LandingPage() {
 					key={operation.name}
 					name={operation.name}
 					symbol={operation.symbol}
-					onStart={() => navigate(`/mode/${operation.name}`)}
+					onStart={() => navigate(`/mode/${operation.id}`)}
 					/>
 				))}
 			</div>
