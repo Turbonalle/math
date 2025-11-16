@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import OperationCard from "../components/OperationCard";
+import { useTranslation } from "../data/useTranslation";
 
 export default function LandingPage() {
 	const navigate = useNavigate();
+	const { t } = useTranslation();
 
 	const operations = [
 		{ name: "addition", symbol: "+" },
@@ -13,7 +15,7 @@ export default function LandingPage() {
 
 	return (
 		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-950 p-8 text-gray-800">
-			<h1 className="text-3xl text-emerald-500 font-bold mb-8">Choose a Math Operation</h1>
+			<h1 className="text-3xl text-emerald-500 font-bold mb-8">{t("landing.title")}</h1>
 			<div className="grid grid-cols-4 gap-6">
 				{operations.map((operation) => (
 					<OperationCard
@@ -35,7 +37,7 @@ export default function LandingPage() {
 					}
 				}}
 			>
-				Reset Progress
+				{t("landing.reset")}
 			</button>
 		</div>
 	);

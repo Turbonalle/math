@@ -1,3 +1,5 @@
+import { useTranslation } from "../data/useTranslation";
+
 interface LeaderboardProps {
 	operation: string;
 	mode: string;
@@ -6,10 +8,11 @@ interface LeaderboardProps {
 export default function Leaderboard({ operation, mode }: LeaderboardProps) {
 	const scores = JSON.parse(localStorage.getItem("mathScores") || "{}");
 	const modeScores = scores[operation]?.[mode] || [];
+	const { t } = useTranslation();
 
 	return (
 		<div className="text-xl text-emerald-400 font-semibold mb-4">
-			<h2 className="mb-4">Top 10</h2>
+			<h2 className="mb-4">{t("leaderboard.top10")}</h2>
 			
 			{modeScores.length === 0 ? (
 				<p className="text-gray-600 text-lg font-normal">No scores yet.</p>
@@ -33,11 +36,6 @@ export default function Leaderboard({ operation, mode }: LeaderboardProps) {
 							>{i + 1}.</span>
 							<span className="text-gray-500 text-left truncate">{entry.name}</span>
 							<span
-								// className={
-								// 	i < 3
-								// 		? "text-white font-semibold text-right"
-								// 		: "text-emerald-500 text-right"
-								// }
 								className={
 									i === 0
 										? "text-yellow-400 font-bold text-right"
