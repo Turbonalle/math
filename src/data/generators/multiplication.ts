@@ -16,6 +16,10 @@ export class MultiplicationGenerator {
 		return pool.splice(index, 1)[0];
 	}
 
+	resetPools() {
+		this.factorPools = {};
+	}
+
 	generate(table: number): Problem {
 		const factor = this.getNextFactor(table);
 		const answer = table * factor;

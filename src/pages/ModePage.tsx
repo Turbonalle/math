@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { operations } from "../data/config";
 import { useTranslation } from "../data/useTranslation";
+import { resetPools } from "../data/config";
 import ModeCard from "../components/ModeCard";
 import Leaderboard from "../components/Leaderboard";
 
@@ -51,7 +52,10 @@ export default function ModePage() {
 									key={modeId}
 									name={modeName}
 									record={topRecord}
-									onStart={() => navigate(`/mode/${operation}/${modeId}`)}
+									onStart={() => {
+										navigate(`/mode/${operation}/${modeId}`);
+										resetPools();
+									}}
 									onHover={() => setHoveredMode(modeId)}
 									onLeave={() => setHoveredMode(null)}
 								/>

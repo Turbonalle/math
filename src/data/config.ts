@@ -13,6 +13,11 @@ export interface OperationConfig {
 const subtractionGenerator = new SubtractionGenerator();
 const multiplicationGenerator = new MultiplicationGenerator();
 
+export function resetPools() {
+	subtractionGenerator.resetPools();
+	multiplicationGenerator.resetPools();
+};
+
 export const operations: Record<string, OperationConfig> = {
 	addition: {
 		symbol: "+",
