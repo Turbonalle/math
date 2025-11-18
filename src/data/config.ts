@@ -1,4 +1,4 @@
-import { additionGenerator } from "./generators/addition";
+import { AdditionGenerator } from "./generators/addition";
 import { SubtractionGenerator } from "./generators/subtraction";
 import { MultiplicationGenerator } from "./generators/multiplication";
 // import { divisionGenerator } from "./generators/division";
@@ -10,10 +10,12 @@ export interface OperationConfig {
 	generate: (difficulty: string) => Problem;
 }
 
+const additionGenerator = new AdditionGenerator();
 const subtractionGenerator = new SubtractionGenerator();
 const multiplicationGenerator = new MultiplicationGenerator();
 
 export function resetPools() {
+	additionGenerator.resetPools();
 	subtractionGenerator.resetPools();
 	multiplicationGenerator.resetPools();
 };
@@ -22,7 +24,7 @@ export const operations: Record<string, OperationConfig> = {
 	addition: {
 		symbol: "+",
 		difficulties: ["1", "2", "3", "4", "5", "6", "7", "8"],
-		generate: additionGenerator
+		generate: additionGenerator.generate.bind(additionGenerator)
 	},
 	subtraction: {
 		symbol: "-",
