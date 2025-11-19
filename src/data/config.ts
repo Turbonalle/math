@@ -1,7 +1,7 @@
 import { AdditionGenerator } from "./generators/addition";
 import { SubtractionGenerator } from "./generators/subtraction";
 import { MultiplicationGenerator } from "./generators/multiplication";
-// import { divisionGenerator } from "./generators/division";
+import { DivisionGenerator } from "./generators/division";
 import type { Problem } from "../types/Problem";
 
 export interface OperationConfig {
@@ -13,11 +13,13 @@ export interface OperationConfig {
 const additionGenerator = new AdditionGenerator();
 const subtractionGenerator = new SubtractionGenerator();
 const multiplicationGenerator = new MultiplicationGenerator();
+const divisionGenerator = new DivisionGenerator();
 
 export function resetPools() {
 	additionGenerator.resetPools();
 	subtractionGenerator.resetPools();
 	multiplicationGenerator.resetPools();
+	divisionGenerator.resetPools();
 };
 
 export const operations: Record<string, OperationConfig> = {
@@ -49,9 +51,22 @@ export const operations: Record<string, OperationConfig> = {
 			}
 		}
 	},
-	// division: {
-	// 	symbol: "/",
-	// 	difficulties: ["1", "2", "3", "4", "5", "6", "7", "8"],
-	// 	generate: divisionGenerator
-	// },
+	division: {
+		symbol: "/",
+		difficulties: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+		generate: (mode: string) => {
+			switch (mode) {
+				case "1": return divisionGenerator.generate(2);
+				case "2": return divisionGenerator.generate(3);
+				case "3": return divisionGenerator.generate(4);
+				case "4": return divisionGenerator.generate(5);
+				case "5": return divisionGenerator.generate(6);
+				case "6": return divisionGenerator.generate(7);
+				case "7": return divisionGenerator.generate(8);
+				case "8": return divisionGenerator.generate(9);
+				case "9": return divisionGenerator.generate(10);
+				default: throw new Error(`Unknown division mode: ${mode}`);
+			}
+		}
+	},
 };

@@ -67,14 +67,15 @@ export const texts: Record<Language, any> = {
 			division: {
 				name: "Division",
 				modes: {
-					"1": "",
-					"2": "",
-					"3": "",
-					"4": "",
-					"5": "",
-					"6": "",
-					"7": "",
-					"8": ""
+					"1": "Table 2",
+					"2": "Table 3",
+					"3": "Table 4",
+					"4": "Table 5",
+					"5": "Table 6",
+					"6": "Table 7",
+					"7": "Table 8",
+					"8": "Table 9",
+					"9": "Table 10"
 				}
 			}
 		}
@@ -145,14 +146,15 @@ export const texts: Record<Language, any> = {
 			division: {
 				name: "Division",
 				modes: {
-					"1": "",
-					"2": "",
-					"3": "",
-					"4": "",
-					"5": "",
-					"6": "",
-					"7": "",
-					"8": ""
+					"1": "Tabell 2",
+					"2": "Tabell 3",
+					"3": "Tabell 4",
+					"4": "Tabell 5",
+					"5": "Tabell 6",
+					"6": "Tabell 7",
+					"7": "Tabell 8",
+					"8": "Tabell 9",
+					"9": "Tabell 10"
 				}
 			}
 		}
@@ -223,14 +225,15 @@ export const texts: Record<Language, any> = {
 			division: {
 				name: "Jakolasku",
 				modes: {
-					"1": "",
-					"2": "",
-					"3": "",
-					"4": "",
-					"5": "",
-					"6": "",
-					"7": "",
-					"8": ""
+					"1": "Kertotaulu 2",
+					"2": "Kertotaulu 3",
+					"3": "Kertotaulu 4",
+					"4": "Kertotaulu 5",
+					"5": "Kertotaulu 6",
+					"6": "Kertotaulu 7",
+					"7": "Kertotaulu 8",
+					"8": "Kertotaulu 9",
+					"9": "Kertotaulu 10"
 				}
 			}
 		}
@@ -301,14 +304,15 @@ export const texts: Record<Language, any> = {
 			division: {
 				name: "Dibisyon",
 				modes: {
-					"1": "",
-					"2": "",
-					"3": "",
-					"4": "",
-					"5": "",
-					"6": "",
-					"7": "",
-					"8": ""
+					"1": "Talahanayan 2",
+					"2": "Talahanayan 3",
+					"3": "Talahanayan 4",
+					"4": "Talahanayan 5",
+					"5": "Talahanayan 6",
+					"6": "Talahanayan 7",
+					"7": "Talahanayan 8",
+					"8": "Talahanayan 9",
+					"9": "Talahanayan 10"
 				}
 			}
 		}
@@ -379,14 +383,15 @@ export const texts: Record<Language, any> = {
 			division: {
 				name: "Deiling",
 				modes: {
-					"1": "",
-					"2": "",
-					"3": "",
-					"4": "",
-					"5": "",
-					"6": "",
-					"7": "",
-					"8": ""
+					"1": "Tafla 2",
+					"2": "Tafla 3",
+					"3": "Tafla 4",
+					"4": "Tafla 5",
+					"5": "Tafla 6",
+					"6": "Tafla 7",
+					"7": "Tafla 8",
+					"8": "Tafla 9",
+					"9": "Tafla 10"
 				}
 			}
 		}
