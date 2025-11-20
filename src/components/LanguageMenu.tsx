@@ -6,7 +6,10 @@ const languages = [
 	{ code: "sv", country: "se" },
 	{ code: "fi", country: "fi" },
 	{ code: "ph", country: "ph" },
-	{ code: "is", country: "is" }
+	{ code: "is", country: "is" },
+	{ code: "lt", country: "lt" },
+	{ code: "ua", country: "ua" },
+	{ code: "ir", country: "ir" },
 ]
 
 export default function LanguageMenu() {

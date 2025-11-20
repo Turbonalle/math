@@ -395,5 +395,242 @@ export const texts: Record<Language, any> = {
 				}
 			}
 		}
+	},
+	lt: {
+		landing: {
+			title: "Pasirinkite matematinę operaciją",
+			reset: "Atstatyti progresą"
+		},
+		modepage: {
+			title: "Pasirinkite režimą",
+			record: "Rekordas",
+		},
+		leaderboard: {
+			hover: "Užveskite ant režimo, kad pamatytumėte rezultatų lentelę",
+			top10: "Geriausi 10",
+			noscore: "Rezultatų dar nėra"
+		},
+		game: {
+			score: "Taškai",
+			total: "Bendras taškų skaičius",
+			progress: "Progresas",
+		},
+		back: "Atgal",
+		error: "Atsiprašome, įvyko klaida...",
+		operations: {
+			addition: {
+				name: "Sudėtis",
+				modes: {
+					"1": "0 - 5",
+					"2": "0 - 10",
+					"3": "Dešimtukas: poros",
+					"4": "10 + x",
+					"5": "10 - 20",
+					"6": "Po 10: žemi",
+					"7": "Po 10: aukšti",
+					"8": "20 - 100"
+				}
+			},
+			subtraction: {
+				name: "Atimtis",
+				modes: {
+					"1": "0 - 5",
+					"2": "0 - 10",
+					"3": "Dešimtukas: poros",
+					"4": "12 - x",
+					"5": "10 - 20",
+					"6": "0 - 20",
+					"7": "100 - x",
+					"8": "0 - 100"
+				}
+			},
+			multiplication: {
+				name: "Daugyba",
+				modes: {
+					"1": "Daugybos lentelė 2",
+					"2": "Daugybos lentelė 3",
+					"3": "Daugybos lentelė 4",
+					"4": "Daugybos lentelė 5",
+					"5": "Daugybos lentelė 6",
+					"6": "Daugybos lentelė 7",
+					"7": "Daugybos lentelė 8",
+					"8": "Daugybos lentelė 9",
+					"9": "Daugybos lentelė 10",
+					"10": "Daugybos lentelė 2-10"
+				}
+			},
+			division: {
+				name: "Dalyba",
+				modes: {
+					"1": "Lentelė 2",
+					"2": "Lentelė 3",
+					"3": "Lentelė 4",
+					"4": "Lentelė 5",
+					"5": "Lentelė 6",
+					"6": "Lentelė 7",
+					"7": "Lentelė 8",
+					"8": "Lentelė 9",
+					"9": "Lentelė 10"
+				}
+			}
+		}
+	},
+	ua: {
+		landing: {
+			title: "Виберіть математичну операцію",
+			reset: "Скинути прогрес"
+		},
+		modepage: {
+			title: "Виберіть режим",
+			record: "Рекорд",
+		},
+		leaderboard: {
+			hover: "Наведіть на режим, щоб переглянути таблицю лідерів",
+			top10: "Топ 10",
+			noscore: "Поки що немає результатів"
+		},
+		game: {
+			score: "Рахунок",
+			total: "Загальний рахунок",
+			progress: "Прогрес",
+		},
+		back: "Назад",
+		error: "Вибачте, щось пішло не так...",
+		operations: {
+			addition: {
+				name: "Додавання",
+				modes: {
+					"1": "0 - 5",
+					"2": "0 - 10",
+					"3": "Десять: пари",
+					"4": "10 + x",
+					"5": "10 - 20",
+					"6": "Понад 10: низькі",
+					"7": "Понад 10: високі",
+					"8": "20 - 100"
+				}
+			},
+			subtraction: {
+				name: "Віднімання",
+				modes: {
+					"1": "0 - 5",
+					"2": "0 - 10",
+					"3": "Десять: пари",
+					"4": "12 - x",
+					"5": "10 - 20",
+					"6": "0 - 20",
+					"7": "100 - x",
+					"8": "0 - 100"
+				}
+			},
+			multiplication: {
+				name: "Множення",
+				modes: {
+					"1": "Таблиця 2",
+					"2": "Таблиця 3",
+					"3": "Таблиця 4",
+					"4": "Таблиця 5",
+					"5": "Таблиця 6",
+					"6": "Таблиця 7",
+					"7": "Таблиця 8",
+					"8": "Таблиця 9",
+					"9": "Таблиця 10",
+					"10": "Таблиця 2-10"
+				}
+			},
+			division: {
+				name: "Division",
+				modes: {
+					"1": "Таблиця 2",
+					"2": "Таблиця 3",
+					"3": "Таблиця 4",
+					"4": "Таблиця 5",
+					"5": "Таблиця 6",
+					"6": "Таблиця 7",
+					"7": "Таблиця 8",
+					"8": "Таблиця 9",
+					"9": "Таблиця 10"
+				}
+			}
+		}
+	},
+	ir: {
+		landing: {
+			title: "یک عمل ریاضی را انتخاب کنید",
+			reset: "بازنشانی پیشرفت"
+		},
+		modepage: {
+			title: "انتخاب حالت",
+			record: "رکورد",
+		},
+		leaderboard: {
+			hover: "برای دیدن جدول برترین‌ها روی یک حالت هوور کنید",
+			top10: "۱۰ نفر برتر",
+			noscore: "هنوز امتیازی ثبت نشده است"
+		},
+		game: {
+			score: "امتیاز",
+			total: "امتیاز کل",
+			progress: "پیشرفت",
+		},
+		back: "بازگشت",
+		error: "متأسفیم، مشکلی پیش آمد...",
+		operations: {
+			addition: {
+				name: "جمع",
+				modes: {
+					"1": "۰ - ۵",
+					"2": "۰ - ۱۰",
+					"3": "ده: جفت‌ها",
+					"4": "۱۰ + x",
+					"5": "۱۰ - ۲۰",
+					"6": "بیش از ۱۰: کم",
+					"7": "بیش از ۱۰: زیاد",
+					"8": "۲۰ - ۱۰۰"
+				}
+			},
+			subtraction: {
+				name: "تفریق",
+				modes: {
+					"1": "۰ - ۵",
+					"2": "۰ - ۱۰",
+					"3": "ده: جفت‌ها",
+					"4": "۱۲ - x",
+					"5": "۱۰ - ۲۰",
+					"6": "۰ - ۲۰",
+					"7": "۱۰۰ - x",
+					"8": "۰ - ۱۰۰"
+				}
+			},
+			multiplication: {
+				name: "ضرب",
+				modes: {
+					"1": "جدول ۲",
+					"2": "جدول ۳",
+					"3": "جدول ۴",
+					"4": "جدول ۵",
+					"5": "جدول ۶",
+					"6": "جدول ۷",
+					"7": "جدول ۸",
+					"8": "جدول ۹",
+					"9": "جدول ۱۰",
+					"10": "جدول ۲ تا ۱۰"
+				}
+			},
+			division: {
+				name: "تقسیم",
+				modes: {
+					"1": "جدول ۲",
+					"2": "جدول ۳",
+					"3": "جدول ۴",
+					"4": "جدول ۵",
+					"5": "جدول ۶",
+					"6": "جدول ۷",
+					"7": "جدول ۸",
+					"8": "جدول ۹",
+					"9": "جدول ۱۰"
+				}
+			}
+		}
 	}
 };
