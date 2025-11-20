@@ -150,7 +150,7 @@ export default function GamePage() {
 
 	if (!operation || !mode || !problem) {
 		return (
-			<div className="flex flex-col items-center justify-center min-h-screen text-white bg-gray-950">
+			<div className="flex flex-col items-center justify-center h-[calc(100vh-52px)] text-white bg-gray-950">
 				<p className="text-xl text-red-400">{t("error")}</p>
 				<button onClick={() => navigate(`/mode/${operation}`)} className="text-emerald-400 mt-4">
 					← {t("back")}
@@ -160,7 +160,7 @@ export default function GamePage() {
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-950 text-white p-8 space-y-8">
+		<div className="flex flex-col items-center justify-center h-[calc(100vh-52px)] bg-gray-950 text-white p-8 space-y-8">
 			<h1 className="text-3xl text-emerald-400 font-bold capitalize">
 				{t(`operations.${operation}.name`)} — {t(`operations.${operation}.modes.${mode}`)}
 			</h1>
@@ -207,13 +207,6 @@ export default function GamePage() {
 				</p>
 				<ProgressBar current={progress} total={TOTAL_PROBLEMS} />
 			</div>
-
-			<button
-				onClick={() => navigate(`/mode/${operation}`)}
-				className="mt-10 text-gray-400 hover:text-emerald-400 transition"
-			>
-				← {t("back")}
-			</button>
 		</div>
 	);
 }

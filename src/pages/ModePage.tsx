@@ -21,7 +21,7 @@ export default function ModePage() {
 
 	if (!operationConfig) {
 		return (
-			<div className="flex flex-col items-center justify-center min-h-screen bg-gray-950 text-white">
+			<div className="flex flex-col items-center justify-center h-[calc(100vh-52px)] bg-gray-950 text-white">
 				<p className="text-red-400 text-xl mb-4">{t("error")}</p>
 				<button
 					className="text-emerald-400 hover:text-emerald-300 transition"
@@ -34,15 +34,14 @@ export default function ModePage() {
 	}
 
 	return (
-		<div className="flex flex-col items-center h-screen bg-gray-950 p-8 text-center text-gray-800">
+		<div className="flex flex-col items-center h-[calc(100vh-52px)] bg-gray-950 text-center text-gray-800">
 			<h1 className="text-emerald-500 font-semibold text-3xl mb-2">{translatedOperation} - {t("modepage.title")}</h1>
 			
 			{/* MAIN CONTENT AREA */}
-			<div className="grow flex justify-center items-center">
-				<div className="flex gap-4 w-full max-w-5xl h-full bg-gray-950">
+			<div className="grow flex justify-center items-start gap-4 w-full max-w-5xl h-full bg-gray-950">
 					
 					{/* LEFT COLUMN */}
-					<div className="flex flex-col space-y-2">
+					<div className="flex flex-col space-y-2 overflow-y-auto pr-2 h-full">
 						{operationConfig.difficulties.map((modeId: string) => {
 							const modeName = t(`operations.${operation}.modes.${modeId}`);
 							const topRecord = operationScores[modeId]?.[0];
@@ -75,16 +74,7 @@ export default function ModePage() {
 							</div>
 						</div>
 					)}
-				</div>
 			</div>
-
-			{/* FOOTER */}
-			<button
-				className="mt-10 text-gray-400 hover:text-emerald-400 transition"
-				onClick={() => navigate("/")}
-			>
-				← {t("back")}
-			</button>
 		</div>
 	);
 }

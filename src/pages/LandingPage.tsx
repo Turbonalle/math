@@ -14,7 +14,7 @@ export default function LandingPage() {
 	];
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-950 p-8 text-gray-800">
+		<div className="flex flex-col items-center justify-center h-[calc(100vh-52px)] bg-gray-950 p-8 text-gray-800">
 			<h1 className="text-3xl text-emerald-500 font-bold mb-8">{t("landing.title")}</h1>
 			<div className="grid grid-cols-4 gap-6">
 				{operations.map((operation) => (
