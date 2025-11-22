@@ -21,6 +21,9 @@ export const texts: Record<Language, any> = {
 			progress: "Progress",
 		},
 		back: "Back",
+		win1: "Congratulations! You made it to position ",
+		win2: " with ",
+		win3: " points! Enter your name:",
 		error: "Sorry, something went wrong...",
 		operations: {
 			addition: {
@@ -100,6 +103,9 @@ export const texts: Record<Language, any> = {
 			progress: "Framsteg",
 		},
 		back: "Tillbaka",
+		win1: "Grattis! Du du kom på plats ",
+		win2: " med ",
+		win3: " poäng! Ange ditt namn:",
 		error: "Hoppsan, något gick snett...",
 		operations: {
 			addition: {
@@ -179,6 +185,9 @@ export const texts: Record<Language, any> = {
 			progress: "Edistyminen",
 		},
 		back: "Takaisin",
+		win1: "Onnittelut! Pääsit sijalle  ",
+		win2: " pisteillä ",
+		win3: " ! Syötä nimesi:",
 		error: "Voi ei, jokin meni vikaan...",
 		operations: {
 			addition: {
@@ -258,6 +267,9 @@ export const texts: Record<Language, any> = {
 			progress: "Progreso",
 		},
 		back: "Bumalik",
+		win1: "Binabati kita! Nakuha mo ang posisyong ",
+		win2: " na may ",
+		win3: " puntos! Ilagay ang iyong pangalan:",
 		error: "Pasensya, may nagkamali",
 		operations: {
 			addition: {
@@ -337,6 +349,9 @@ export const texts: Record<Language, any> = {
 			progress: "Framvinda",
 		},
 		back: "Til baka",
+		win1: "Til hamingju! Þú náðir sæti númer ",
+		win2: " með ",
+		win3: " stig! Sláðu inn nafnið þitt:",
 		error: "Úps, eitthvað fór úrskeiðis...",
 		operations: {
 			addition: {
@@ -416,6 +431,9 @@ export const texts: Record<Language, any> = {
 			progress: "Progresas",
 		},
 		back: "Atgal",
+		win1: "Sveikiname! Jūs pasiekėte ",
+		win2: " vietą su ",
+		win3: " taškais! Įveskite savo vardą:",
 		error: "Atsiprašome, įvyko klaida...",
 		operations: {
 			addition: {
@@ -495,6 +513,9 @@ export const texts: Record<Language, any> = {
 			progress: "Прогрес",
 		},
 		back: "Назад",
+		win1: "Вітаємо! Ви зайняли ",
+		win2: " місце з ",
+		win3: " балами! Введіть своє ім’я:",
 		error: "Вибачте, щось пішло не так...",
 		operations: {
 			addition: {
@@ -539,7 +560,7 @@ export const texts: Record<Language, any> = {
 				}
 			},
 			division: {
-				name: "Division",
+				name: "Ділення",
 				modes: {
 					"1": "Таблиця 2",
 					"2": "Таблиця 3",
@@ -574,6 +595,9 @@ export const texts: Record<Language, any> = {
 			progress: "پیشرفت",
 		},
 		back: "بازگشت",
+		win1: "تبریک! شما به رتبهٔ ",
+		win2: " با ",
+		win3: " امتیاز رسیدید! نام خود را وارد کنید:",
 		error: "متأسفیم، مشکلی پیش آمد...",
 		operations: {
 			addition: {

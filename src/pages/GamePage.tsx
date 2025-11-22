@@ -12,11 +12,13 @@ export default function GamePage() {
 	const PENALTY = 20;
 	const TICK_SPEED = 100;
 	const NEXT_PROBLEM_DELAY = 800;
-
+	const LEADERBOARD_MAX_ENTRIES = 10;
+	
+	
 	const { operation, mode } = useParams();
 	const navigate = useNavigate();
 	const { t } = useTranslation();
-
+	
 	const [problem, setProblem] = useState<Problem | null>(null);
 	const [progress, setProgress] = useState(0);
 	const [score, setScore] = useState(MAX_SCORE);
@@ -26,10 +28,10 @@ export default function GamePage() {
 
 	const scoreTimer = useRef<number | null>(null);
 
-
 // ---- Functions --------------------------------------------------------------
 
 	useEffect(() => {
+		console.log("useEffect called");
 		if (operation && mode) generateProblem();
 		return (() => {
 			if (scoreTimer.current) clearInterval(scoreTimer.current);
@@ -95,7 +97,7 @@ export default function GamePage() {
 				nextProblem();
 			}, NEXT_PROBLEM_DELAY);
 		} else {
-			// Wrong: mark as wrong, subtract 10 points
+			// Wrong: mark as wrong, subtract PENALTY points
 			playSound("wrong");
 			setStatuses((previous) => {
 				const updated = [...previous];
@@ -107,8 +109,9 @@ export default function GamePage() {
 	}
 
 	function nextProblem() {
-		setProgress((progress) => progress + 1);
-		if (progress >= TOTAL_PROBLEMS - 1) {
+		const newProgress = progress + 1;
+		setProgress((p) => p + 1);
+		if (newProgress >= TOTAL_PROBLEMS) {
 			finishGame(totalScore + score);
 		} else {
 			generateProblem();
@@ -125,23 +128,28 @@ export default function GamePage() {
 
 		const modeScores = scores[operation][mode];
 
-		const lowestTopScore = modeScores.length < 10
+		const lowestTopScore = modeScores.length < LEADERBOARD_MAX_ENTRIES
 			? -Infinity
 			: modeScores[modeScores.length - 1].score;
 
-		if (finalScore > lowestTopScore) {
-			const name = prompt("You made it to the top 10! Enter your name:") || "Anonymous";
+		let position = 0;
+		for (let i = 0; i < modeScores.length; i++) {
+			position++;
+			if (finalScore >= modeScores[i].score) {
+				break;
+			}
+		}
 
+		if (finalScore > lowestTopScore) {
+			const name = prompt(t("win1") + position + t("win2") + finalScore + t("win3")) || "Anonymous";
+			
 			modeScores.push({ name, score: finalScore });
 			modeScores.sort((a: {name: string, score: number}, b: {name: string, score: number}) => b.score - a.score);
-			modeScores.splice(10);
-
-			console.log("New record! modeScores: ", modeScores);
+			modeScores.splice(LEADERBOARD_MAX_ENTRIES);
 
 			localStorage.setItem("mathScores", JSON.stringify(scores));
 		}
-		
-		console.log("modeScores: ", modeScores);
+
 		navigate(`/mode/${operation}`);
 	}
 
@@ -160,30 +168,29 @@ export default function GamePage() {
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center h-[calc(100vh-52px)] bg-gray-950 text-white p-8 space-y-8">
-			<h1 className="text-3xl text-emerald-400 font-bold capitalize">
-				{t(`operations.${operation}.name`)} — {t(`operations.${operation}.modes.${mode}`)}
+		<div className="flex flex-col items-center justify-center h-[calc(100vh-52px)] bg-gray-950 text-white p-8 space-y-6">
+			{/* Title */}
+			<h1 className="text-4xl text-emerald-400 font-bold capitalize">
+				{t(`operations.${operation}.name`)}: {t(`operations.${operation}.modes.${mode}`)}
 			</h1>
 
 			{/* Score timer (reverse progress) */}
-			<div className="w-80">
-				<p className="text-sm mb-1 text-gray-400">
-					{t("game.score")}: <span className="text-emerald-400">{score}</span>
-				</p>
-				<p className="text-sm mb-1 text-gray-400">
-					{t("game.total")}: <span className="text-emerald-400">{totalScore}</span>
-				</p>
-				<div className="w-full h-4 bg-gray-700 rounded-full">
-					<div
-						className="h-full bg-emerald-500 rounded-full transition-all"
-						style={{ width: `${score}%` }}
-					/>
-				</div>
+			<ProgressBar
+				name={t("game.score")}
+				current={score}
+				total={MAX_SCORE}
+				showTotal={false}
+			/>
+			
+			{/* Total score */}
+			<div className="flex flex-col w-full items-center justify-center">
+				<p className="text-sm text-gray-400">{t("game.total")}:</p>
+				<p className="text-4xl text-emerald-400 font-bold">{totalScore}</p>
 			</div>
 
 			{/* Problem display */}
 			<div className="bg-gray-800 p-8 rounded-xl shadow-lg text-center w-80">
-				<p className="text-5xl font-bold mb-8">
+				<p className="text-4xl font-bold mb-8">
 					{problem.question}
 				</p>
 
@@ -200,13 +207,13 @@ export default function GamePage() {
 				</div>
 			</div>
 
-			{/* Progress bar (how many problems done) */}
-			<div className="w-80">
-				<p className="text-sm mb-1 text-gray-400">{t("game.progress")}:
-					<span className="text-emerald-400"> {progress} / {TOTAL_PROBLEMS}</span>
-				</p>
-				<ProgressBar current={progress} total={TOTAL_PROBLEMS} />
-			</div>
+			{/* Progress - Problems done */}
+			<ProgressBar
+				name={t("game.progress")}
+				current={progress}
+				total={TOTAL_PROBLEMS}
+				showTotal={true}
+			/>
 		</div>
 	);
 }
