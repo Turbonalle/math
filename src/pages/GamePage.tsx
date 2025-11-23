@@ -170,11 +170,18 @@ export default function GamePage() {
 
 	return (
 		<div className="flex flex-col items-center justify-center min-h-[calc(100vh-52px)] w-full bg-gray-950">
-			<div className="flex flex-col items-center justify-center w-full max-w-[500px] text-white p-4 sm:p-8 space-y-6">
+			<div className="flex flex-col items-center justify-center w-full max-w-[500px] text-white p-4 sm:p-8 space-y-8">
 				{/* Title */}
-				<div className="text-3xl sm:text-4xl text-emerald-400 text-center font-bold capitalize">
-					<h1>{t(`operations.${operation}.name`)}: </h1>
-					<h1>{t(`operations.${operation}.modes.${mode}`)}</h1>
+				<div className="text-center font-bold capitalize">
+					<h1 className="text-2xl sm:text-6xl text-gray-500">{t(`operations.${operation}.name`)}</h1>
+					<h1 className="text-4xl sm:text-6xl text-emerald-400">{t(`operations.${operation}.modes.${mode}`)}</h1>
+
+				</div>
+				
+				{/* Total score */}
+				<div className="flex flex-col w-full items-center justify-center">
+					<p className="text-sm text-gray-400">{t("game.total")}:</p>
+					<p className="text-6xl sm:text-6xl text-emerald-400 font-bold">{totalScore}</p>
 				</div>
 
 				{/* Score timer (reverse progress) */}
@@ -184,12 +191,6 @@ export default function GamePage() {
 					total={MAX_SCORE}
 					showTotal={false}
 				/>
-				
-				{/* Total score */}
-				<div className="flex flex-col w-full items-center justify-center">
-					<p className="text-sm text-gray-400">{t("game.total")}:</p>
-					<p className="text-3xl sm:text-4xl text-emerald-400 font-bold">{totalScore}</p>
-				</div>
 
 				{/* Problem display */}
 				<AnimatePresence mode="wait">
