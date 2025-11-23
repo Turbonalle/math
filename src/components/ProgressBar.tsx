@@ -7,7 +7,7 @@ interface ProgressBarProps {
 
 export default function OperationCard({ name, current, total, showTotal }: ProgressBarProps) {
 	return (
-		<div className="w-80">
+		<div className="w-full">
 			<p className="text-sm mb-1 text-gray-400">{name}:
 				<span className="text-emerald-400"> {
 					showTotal

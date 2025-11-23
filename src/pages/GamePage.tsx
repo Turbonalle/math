@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { operations } from "../data/config";
 import { useTranslation } from "../data/useTranslation";
 import type { Problem } from "../types/Problem";
@@ -168,52 +169,76 @@ export default function GamePage() {
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center h-[calc(100vh-52px)] bg-gray-950 text-white p-8 space-y-6">
-			{/* Title */}
-			<h1 className="text-4xl text-emerald-400 font-bold capitalize">
-				{t(`operations.${operation}.name`)}: {t(`operations.${operation}.modes.${mode}`)}
-			</h1>
-
-			{/* Score timer (reverse progress) */}
-			<ProgressBar
-				name={t("game.score")}
-				current={score}
-				total={MAX_SCORE}
-				showTotal={false}
-			/>
-			
-			{/* Total score */}
-			<div className="flex flex-col w-full items-center justify-center">
-				<p className="text-sm text-gray-400">{t("game.total")}:</p>
-				<p className="text-4xl text-emerald-400 font-bold">{totalScore}</p>
-			</div>
-
-			{/* Problem display */}
-			<div className="bg-gray-800 p-8 rounded-xl shadow-lg text-center w-80">
-				<p className="text-4xl font-bold mb-8">
-					{problem.question}
-				</p>
-
-				<div className="grid grid-cols-2 gap-2">
-					{problem.options.map((option, index) => (
-						<OptionButton
-							key={index}
-							value={option}
-							onClick={() => handleAnswer(option, index)}
-							locked={isLocked || statuses[index] === "wrong"}
-							status={statuses[index] as any}
-						/>
-					))}
+		<div className="flex flex-col items-center justify-center min-h-[calc(100vh-52px)] w-full bg-gray-950">
+			<div className="flex flex-col items-center justify-center w-full max-w-[500px] text-white p-4 sm:p-8 space-y-6">
+				{/* Title */}
+				<div className="text-3xl sm:text-4xl text-emerald-400 text-center font-bold capitalize">
+					<h1>{t(`operations.${operation}.name`)}: </h1>
+					<h1>{t(`operations.${operation}.modes.${mode}`)}</h1>
 				</div>
-			</div>
 
-			{/* Progress - Problems done */}
-			<ProgressBar
-				name={t("game.progress")}
-				current={progress}
-				total={TOTAL_PROBLEMS}
-				showTotal={true}
-			/>
+				{/* Score timer (reverse progress) */}
+				<ProgressBar
+					name={t("game.score")}
+					current={score}
+					total={MAX_SCORE}
+					showTotal={false}
+				/>
+				
+				{/* Total score */}
+				<div className="flex flex-col w-full items-center justify-center">
+					<p className="text-sm text-gray-400">{t("game.total")}:</p>
+					<p className="text-3xl sm:text-4xl text-emerald-400 font-bold">{totalScore}</p>
+				</div>
+
+				{/* Problem display */}
+				<AnimatePresence mode="wait">
+					<motion.div
+						key={problem.question}
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: -20 }}
+						transition={{ duration: 0.1 }}
+						className="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg text-center w-full"
+					>
+						<motion.p
+							initial={{ opacity: 0, y: 10 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ delay: 0, duration: 0.05 }}
+							className="text-4xl font-bold mb-8"
+						>
+							{problem.question}
+						</motion.p>
+
+						<div className="grid grid-cols-2 gap-2">
+							{problem.options.map((option, index) => (
+								<motion.div
+									key={option}
+									initial={{ opacity: 0, scale: 0.9 }}
+									animate={{ opacity: 1, scale: 1 }}
+									transition={{ delay: index * 0.05, duration: 0.05 }}
+								>
+									<OptionButton
+										key={index}
+										value={option}
+										onClick={() => handleAnswer(option, index)}
+										locked={isLocked || statuses[index] === "wrong"}
+										status={statuses[index] as any}
+									/>
+								</motion.div>
+							))}
+						</div>
+					</motion.div>
+				</AnimatePresence>
+
+				{/* Progress - Problems done */}
+				<ProgressBar
+					name={t("game.progress")}
+					current={progress}
+					total={TOTAL_PROBLEMS}
+					showTotal={true}
+				/>
+			</div>
 		</div>
 	);
 }
