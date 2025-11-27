@@ -169,18 +169,21 @@ export default function GamePage() {
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-[calc(100vh-52px)] w-full bg-gray-950">
-			<div className="flex flex-col items-center justify-center w-full max-w-[500px] text-white p-4 sm:p-8 space-y-8">
+		<div className="flex flex-col items-center h-full w-full bg-gray-950">
+			<div className="flex flex-col items-center justify-center min-h-full w-full max-w-[500px] p-4 sm:p-8">
 				{/* Title */}
-				<div className="text-center font-bold capitalize">
-					<h1 className="text-2xl sm:text-6xl text-gray-500">{t(`operations.${operation}.name`)}</h1>
-					<h1 className="text-4xl sm:text-6xl text-gray-500">
+				<div className="text-center font-bold capitalize flex-none mb-4">
+					<h1 className="text-5xl sm:text-6xl text-gray-500">{t(`operations.${operation}.name`)}</h1>
+					<h1 className="text-5xl sm:text-6xl text-gray-500">
 						"
 						<span className="text-emerald-400">{t(`operations.${operation}.modes.${mode}`)}</span>
 						"
 					</h1>
 				</div>
 				<div className="w-full h-0.5 bg-gray-500"></div>
+
+				{/* Spacer */}
+				<div className="flex-1"></div>
 				
 				{/* Total score */}
 				<div className="flex flex-col w-full items-center justify-center">
@@ -204,13 +207,13 @@ export default function GamePage() {
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: -20 }}
 						transition={{ duration: 0.1 }}
-						className="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg text-center w-full"
+						className="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg text-center w-full mt-4"
 					>
 						<motion.p
 							initial={{ opacity: 0, y: 10 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0, duration: 0.05 }}
-							className="text-4xl sm:text-5xl font-bold mb-8"
+							className="text-4xl sm:text-5xl text-white font-bold mb-8"
 						>
 							{problem.question}
 						</motion.p>
@@ -235,6 +238,9 @@ export default function GamePage() {
 						</div>
 					</motion.div>
 				</AnimatePresence>
+
+				{/* Spacer */}
+				<div className="flex-1"></div>
 
 				{/* Progress - Problems done */}
 				<ProgressBar
