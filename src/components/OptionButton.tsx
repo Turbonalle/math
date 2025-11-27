@@ -6,7 +6,7 @@ interface OptionButtonProps {
 };
 
 export default function OptionButton({ value, locked, status = null, onClick }: OptionButtonProps) {
-	let base = "w-full py-8 py-3 text-4xl font-semibold rounded-xl transition select-none border-2 border-transparent";
+	let base = "w-full h-[12vh] text-4xl font-semibold rounded-xl transition select-none border-2 border-transparent";
 	
 	const hover = !locked && status === null
 		? "hover:bg-gray-300 hover:border-emerald-400 cursor-pointer"

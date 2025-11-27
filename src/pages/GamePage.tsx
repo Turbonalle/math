@@ -173,8 +173,8 @@ export default function GamePage() {
 			<div className="flex flex-col items-center justify-center min-h-full w-full max-w-[500px] p-4 sm:p-8">
 				{/* Title */}
 				<div className="text-center font-bold capitalize flex-none mb-4">
-					<h1 className="text-5xl sm:text-6xl text-gray-500">{t(`operations.${operation}.name`)}</h1>
-					<h1 className="text-5xl sm:text-6xl text-gray-500">
+					<h1 className="text-4xl sm:text-6xl text-gray-500">{t(`operations.${operation}.name`)}</h1>
+					<h1 className="text-4xl sm:text-6xl text-gray-500">
 						"
 						<span className="text-emerald-400">{t(`operations.${operation}.modes.${mode}`)}</span>
 						"
