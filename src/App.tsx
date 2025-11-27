@@ -4,7 +4,7 @@ import ModePage from './pages/ModePage';
 import GamePage from './pages/GamePage';
 import Layout from './components/Layout';
 
-const basename = import.meta.env.MODE === "production" ? "/react-mathpractice" : "/";
+const basename = import.meta.env.MODE === "production" ? "/math" : "/";
 
 export default function App() {
   return (
